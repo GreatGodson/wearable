@@ -1,0 +1,19 @@
+{
+  "message": [
+    {
+      "title": "Capture Your Journey, Every Step of the Way!",
+      "message": "Welcome to Wearable! Record your thoughts, emotions, and daily experiences effortlessly in your personal journal. Take the first step toward understanding your story and gaining valuable insights into your well-being.",
+      "lottie": "assets/lotties/person.json"
+    },
+    {
+      "title": "Turn Insights Into Growth!",
+      "message": "Visualize your progress with intuitive charts and metrics. From tracking your mood to viewing health data, we help you connect the dots for a healthier, happier you!",
+      "lottie": "assets/lotties/graph.json"
+    },
+    {
+      "title": "You're doing great! Keep it up!",
+      "message": "Stay inspired! Start journaling today to unlock your path to growth and well-being.",
+      "lottie": "assets/lotties/journal.json"
+    }
+  ]
+}
