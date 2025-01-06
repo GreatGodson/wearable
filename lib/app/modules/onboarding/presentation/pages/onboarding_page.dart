@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -6,19 +8,51 @@ import 'package:wearable/app/modules/dashboard/presentation/pages/dashboard_page
 import 'package:wearable/app/modules/onboarding/data/models/response/onboarding_model.dart';
 import 'package:wearable/app/modules/onboarding/domain/service/onboarding_service.dart';
 import 'package:wearable/core/framework/theme/spacings/spacings.dart';
+
 import '../../../../../core/framework/navigator/navigator.dart';
 import '../../../../shared/presentation/components/button_component.dart';
 import '../components/indicator_component.dart';
 
-class OnboardingPage extends ConsumerWidget {
-  OnboardingPage({super.key});
-
-  final _pageViewIndexProvider = StateProvider.autoDispose((ref) => 0);
-
-  final _controller = PageController();
+class OnboardingPage extends ConsumerStatefulWidget {
+  const OnboardingPage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<OnboardingPage> createState() => _OnboardingPageState();
+}
+
+class _OnboardingPageState extends ConsumerState<OnboardingPage> {
+  final _pageViewIndexProvider = StateProvider.autoDispose((ref) => 0);
+
+  late PageController _controller;
+  late Timer _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = PageController();
+    _timer = Timer.periodic(const Duration(seconds: 3), (timer) {
+      if (ref.read(_pageViewIndexProvider) < 3 - 1) {
+        ref.read(_pageViewIndexProvider.notifier).state++;
+      } else {
+        _timer.cancel();
+      }
+
+      _controller.animateToPage(
+        ref.read(_pageViewIndexProvider),
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.easeInOut,
+      );
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: FutureBuilder<OnboardingDto>(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wearable/app/shared/helpers/date_converter.dart';
 
 import '../../../../../core/framework/local/storage_service.dart';
 import '../../../../../core/framework/navigator/navigator.dart';
@@ -46,7 +47,7 @@ class _JournalFragmentState extends State<JournalFragment> {
                           children: List.generate(data.length, (index) {
                             final entry = data[index].entry;
                             final mood = data[index].mood;
-                            final date = data[index].date;
+                            final date = convertDateFormat(data[index].date);
                             return Container(
                               margin: const EdgeInsets.only(
                                   bottom: Spacings.spacing16),
