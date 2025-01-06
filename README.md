@@ -29,8 +29,8 @@ Design inspiration was entirely by me
 |:-------------------------------------------------------:|:---------------------------------------------------:|  
 | <img src="assets/graphics/dashboard-2.png" width="500"> | <img src="assets/graphics/journal.png" width="500"> |
 
-|                   Add Journal Screen                    |                 Motivational message and step                 | 
-|:-------------------------------------------------------:|:-------------------------------------------------------------:|  
-| <img src="assets/graphics/add-journal.png" width="500"> | <img src="assets/graphics/success-journal-1.png" width="500"> |
+|                   Add Journal Screen                    |                Motivational message and step                | 
+|:-------------------------------------------------------:|:-----------------------------------------------------------:|  
+| <img src="assets/graphics/add-journal.png" width="500"> | <img src="assets/graphics/success-journal.png" width="500"> |
 
 
